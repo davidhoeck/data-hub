@@ -373,6 +373,11 @@ pimcore.plugin.datahub.fieldConfigDialog = Class.create({
                                     this.openConfigDialog(element, copy);
 
                                     record.parentNode.removeChild(record);
+                                } else if (record.data.configAttributes) {
+                                    record.data.key = record.data.configAttributes.attribute;
+                                    record.data.dataType = record.data.configAttributes.dataType;
+
+                                    delete record.data.configAttributes;
                                 }
                             }
                         }.bind(this),
